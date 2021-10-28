@@ -25,6 +25,9 @@ function json_safe_encode($object, $flags = null)
         $object = utf8_sanitize($object);
     }
 
+    $flags |= JSON_PRETTY_PRINT;
+    $flags |= JSON_UNESCAPED_SLASHES;
+
     $json = json_encode($object, $flags);
 
     if ($json === false) {
